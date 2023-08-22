@@ -89,7 +89,8 @@ private void DoSomethingServerSide(int clientId)
 [ClientRpc]
 private void DoSomethingClientRpc(int randomInteger, ClientRpcParams clientRpcParams = default)
 {
-    if (IsOwner) return;
+    //early return if you are not the owner/client (Just like how we are returning early from server)
+    if (!IsOwner) return;
 
     // Run your client-side logic here!!
     Debug.LogFormat("GameObject: {0} has received a randomInteger with value: {1}", gameObject.name, randomInteger);
